@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Vehiculo } from '../models/vehiculo';
 import { VehiculoService } from '../vehiculo.service';
 
@@ -10,6 +10,9 @@ import { VehiculoService } from '../vehiculo.service';
 })
 
 export class IngresarVehiculoComponent implements OnInit {
+
+  @Output() header = new EventEmitter();
+
   vehiculoModel = new Vehiculo();
   titulo: String;
   mensaje: String;
@@ -17,6 +20,7 @@ export class IngresarVehiculoComponent implements OnInit {
   mensajeExitoso: boolean;
   tipoVehiculoMoto : number = 1;
   tipoVehiculoCarro : number = 2;
+  recargar : number = 1;
 
   constructor(
     private vehiculoService: VehiculoService
@@ -38,6 +42,7 @@ export class IngresarVehiculoComponent implements OnInit {
         this.mensaje = "El Vehículo "+ this.vehiculoModel.placa +" ingresó al parqueadero exitosamente";
         this.mensajeExitoso = true;
         this.vehiculoModel = new Vehiculo();
+        this.recargarListadoParqueos();
       },
       err => {
         this.titulo = "Atención";
@@ -50,6 +55,10 @@ export class IngresarVehiculoComponent implements OnInit {
   ocultarMensaje()
   {
     this.mostrarMensaje = false;
+  }
 
+  recargarListadoParqueos()
+  {
+    this.header.emit(this.recargar++);
   }
 }

@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Estacionamiento - ADN Ceiba';
+  mensaje = '';
+
+  recargarListadoParqueos(mensaje)
+  {
+    this.mensaje = mensaje;
+  }
 }

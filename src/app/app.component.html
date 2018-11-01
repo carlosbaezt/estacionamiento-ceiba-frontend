@@ -5,13 +5,14 @@
         {{title}}
     </a>
 </nav>
+<br/>
 <div class="container">
     <div class="row">
         <div class="col-sm">
-            <app-ingresar-vehiculo></app-ingresar-vehiculo>
+            <app-ingresar-vehiculo (header)="recargarListadoParqueos($event)"></app-ingresar-vehiculo>
         </div>
         <div class="col-sm">
-            <app-listado-vehiculos></app-listado-vehiculos>
+            <app-listado-vehiculos [recargarListado]="mensaje"></app-listado-vehiculos>
         </div>
     </div>
 </div>
