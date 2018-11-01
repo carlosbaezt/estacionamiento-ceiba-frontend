@@ -15,6 +15,7 @@ import { ListadoVehiculosComponent } from './listado-vehiculos/listado-vehiculos
 import {HttpClientModule} from "@angular/common/http";
 import { faChargingStation } from '@fortawesome/free-solid-svg-icons';
 import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 // Add an icon to the library for convenient access in other components
 library.add(faFlagCheckered);
@@ -22,6 +23,8 @@ library.add(faCar);
 library.add(faMotorcycle);
 library.add(faChargingStation);
 library.add(faArrowCircleRight);
+library.add(faArrowRight);
+
 
 @NgModule({
   declarations: [
