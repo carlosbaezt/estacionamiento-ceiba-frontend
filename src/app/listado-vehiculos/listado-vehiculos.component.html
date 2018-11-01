@@ -1,0 +1,27 @@
+<h3 class="text-center">Listado de Vehículos Estacionados</h3>
+<hr>
+<div *ngIf="listadoParqueos.length > 0" >
+    <table class="table">
+        <thead>
+            <tr>
+            <th>Placa</th>
+            <th>Tipo Vehículo</th>
+            <th>Fecha de Ingreso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let parqueo of listadoParqueos" >
+                <td>{{parqueo.placa}}</td>
+                <td>{{parqueo.tipoVehiculo}}</td>
+                <td>{{parqueo.fechaIngreso}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="listadoParqueos.length == 0" >
+    <div align="center">
+        <fa-icon icon="charging-station" size="9x"></fa-icon>
+        <br/>
+        Actualmente no hay vehículos estacionados :(
+    </div>
+</div>

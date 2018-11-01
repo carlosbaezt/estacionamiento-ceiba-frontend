@@ -11,25 +11,30 @@ import { FormsModule }   from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UpperCaseTextDirective } from './upper-case-text.directive';
-
+import { ListadoVehiculosComponent } from './listado-vehiculos/listado-vehiculos.component';
+import {HttpClientModule} from "@angular/common/http";
+import { faChargingStation } from '@fortawesome/free-solid-svg-icons';
 
 // Add an icon to the library for convenient access in other components
 library.add(faFlagCheckered);
 library.add(faCar);
 library.add(faMotorcycle);
+library.add(faChargingStation);
 
 @NgModule({
   declarations: [
     AppComponent,
     IngresarVehiculoComponent,
-    UpperCaseTextDirective
+    UpperCaseTextDirective,
+    ListadoVehiculosComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     FormsModule,
     HttpModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
