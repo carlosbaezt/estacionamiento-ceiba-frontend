@@ -8,13 +8,11 @@ import { Vehiculo } from '../models/vehiculo';
 })
 export class IngresarVehiculoComponent implements OnInit {
 
-  vehiculoModel = new Vehiculo('abc123',"1",125);
-
+  vehiculoModel = new Vehiculo();
   constructor() {
-    this.vehiculoModel = new Vehiculo('abc123',"1",125);
+    
   }
 
   ngOnInit() {
   }
-
 }

@@ -19,3 +19,37 @@
     background-color: black;
     border-color: black;
 }
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 10px solid #42A948;
+  }
+  
+.ng-invalid:not(form)  {
+    border-left: 10px solid #a94442;
+}
+
+.errores-input
+{
+    color: #a94442;
+}
+
+.btn-ingresar-vehiculo
+{
+    color: black;
+    background-color: yellow;
+}
+
+.btn-ingresar-vehiculo:hover
+{
+    color: yellow;
+    background-color: black;
+    border-color: black;
+}
+
+.btn-ingresar-vehiculo:disabled
+{
+    color: #6c757d;
+    background-color: transparent;
+    background-image: none;
+    border-color: #6c757d;
+}
