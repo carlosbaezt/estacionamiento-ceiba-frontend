@@ -7,6 +7,9 @@ body, html {
 {
     background-color: yellow;
     color: black;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .btn-tipo-vehiculo
@@ -26,7 +29,7 @@ body, html {
 }
 
 .ng-valid[required], .ng-valid.required  {
-    border-left: 10px solid #42A948;
+    border-left: 10px solid #ffc107;
   }
   
 .ng-invalid:not(form)  {
@@ -45,22 +48,19 @@ body, html {
 {
     color: black;
     background-color: yellow;
-    border-color: black !important;
 }
 
 .btn-ingresar-vehiculo:hover
 {
     color: yellow;
     background-color: black;
-    border-color: black;
 }
 
 .btn-ingresar-vehiculo:disabled
 {
     color: #6c757d;
-    background-color: transparent;
+    background-color: #ffffa0;
     background-image: none;
-    border-color: #6c757d;
 }
 
 .circle-icon {
@@ -73,4 +73,30 @@ body, html {
     color: yellow;
     background-color: black;
     border-radius: 50% !important;
+}
+
+.separador{
+    margin-top: 2rem;
+}
+
+.btn-group-toggle
+{
+    padding: 0 !important;
+}
+
+.checkMoto
+{
+    border-right: 2px solid black !important;
+}
+
+.modal-error > .modal-header
+{
+    background: #a94442;
+    color: white;
+}
+
+.modal-success > .modal-header
+{
+    background: yellow;
+    color: black;
 }

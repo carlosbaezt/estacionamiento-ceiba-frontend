@@ -1,11 +1,11 @@
 <h3 class="text-center">Ingreso de Vehículos</h3>
 <hr>
-<form #ingresoVehiculoForm="ngForm" (ngSubmit)="onSubmit(ingresoVehiculoForm)">
+<form #ingresoVehiculoForm="ngForm" (ngSubmit)="onSubmit(ingresoVehiculoForm, content)">
     <div class="col-12">
         <div class="form-group">
             <label for="btn-group-toggle">Tipo de Vehículo:</label><br/>
-            <div class="btn-group btn-group-toggle">
-                <label class="btn btn-tipo-vehiculo col-sm" [class.active]="vehiculoModel.tipoVehiculo == tipoVehiculoMoto">
+            <div class="btn-group btn-group-toggle container">
+                <label class="btn btn-tipo-vehiculo col-sm checkMoto" [class.active]="vehiculoModel.tipoVehiculo == tipoVehiculoMoto">
                     <fa-icon icon="motorcycle"></fa-icon>
                     <input [(ngModel)]="vehiculoModel.tipoVehiculo" value="{{tipoVehiculoMoto}}" type="radio" name="tipoVehiculo" id="option1" required #tipoVehiculo="ngModel" > Moto
                 </label>
@@ -41,17 +41,30 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-ingresar-vehiculo" [disabled]="!ingresoVehiculoForm.form.valid">
-            Ingresar al parqueadero
-            <fa-icon icon="arrow-circle-right"></fa-icon>
-        </button>
+        <div class="separador form-group text-center">
+            <button type="submit" class="btn btn-ingresar-vehiculo col-12" 
+                [disabled]="!ingresoVehiculoForm.form.valid">
+                Ingresar al parqueadero
+                <fa-icon icon="arrow-circle-right"></fa-icon>
+            </button>
+        </div>
     </div>
 </form>
 <br/>
 
-<div *ngIf="mostrarMensaje" class="alert alert-dismissible fade show" [ngClass]="[mensajeExitoso ? 'alert-success' : 'alert-danger']" >
-    <strong>{{ titulo }}!</strong> {{ mensaje }}
-    <button type="button" class="close" (click)="ocultarMensaje()" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-    </button>
-</div>
+<ng-template #content let-modal>
+    <div [ngClass]="[procesoExitoso ? 'modal-success' : 'modal-error']">
+        <div class="modal-header">
+            <h4 class="modal-title">{{ titulo }}!</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>{{ mensaje }}&hellip;</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
+        </div>
+    </div>
+</ng-template>
