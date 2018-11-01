@@ -1,33 +1,44 @@
-<h3>Ingreso de Vehículos</h3>
+<h3 class="text-center">Ingreso de Vehículos</h3>
+<hr>
+<div *ngIf="mostrarMensaje" class="alert alert-dismissible fade show"  [ngClass]="[mensajeExitoso ? 'alert-success' : 'alert-danger']" >
+    <strong>{{ titulo }}!</strong> {{ mensaje }}
+    <button type="button" class="close" (click)="ocultarMensaje()" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
 <form (ngSubmit)="onSubmit()" #ingresoVehiculoForm="ngForm">
     <div class="col-12">
-        <div class="form-group btn-group btn-group-toggle">
-            <label class="btn btn-tipo-vehiculo col-sm" [class.active]="vehiculoModel.tipoVehiculo == 1">
-                <fa-icon icon="motorcycle"></fa-icon>
-                <input [(ngModel)]="vehiculoModel.tipoVehiculo" value="1" type="radio" name="tipoVehiculo" id="option1" required #tipoVehiculo="ngModel" > Moto
-            </label>
-            <label class="btn btn-tipo-vehiculo col-sm" [class.active]="vehiculoModel.tipoVehiculo == 2" >
-                    <fa-icon icon="car"></fa-icon>
-                <input [(ngModel)]="vehiculoModel.tipoVehiculo" value="2" type="radio" name="tipoVehiculo" id="option2" required #tipoVehiculo="ngModel" > Carro
-            </label>            
-        </div>
-        <div [hidden]="tipoVehiculo.valid || tipoVehiculo.pristine"
+        <div class="form-group">
+            <label for="btn-group-toggle">Tipo de Vehículo:</label><br/>
+            <div class="btn-group btn-group-toggle">
+                <label class="btn btn-tipo-vehiculo col-sm" [class.active]="vehiculoModel.tipoVehiculo == tipoVehiculoMoto">
+                    <fa-icon icon="motorcycle"></fa-icon>
+                    <input [(ngModel)]="vehiculoModel.tipoVehiculo" value="{{tipoVehiculoMoto}}" type="radio" name="tipoVehiculo" id="option1" required #tipoVehiculo="ngModel" > Moto
+                </label>
+                <label class="btn btn-tipo-vehiculo col-sm" [class.active]="vehiculoModel.tipoVehiculo == tipoVehiculoCarro" >
+                        <fa-icon icon="car"></fa-icon>
+                    <input [(ngModel)]="vehiculoModel.tipoVehiculo" value="{{tipoVehiculoCarro}}" type="radio" name="tipoVehiculo" id="option2" required #tipoVehiculo="ngModel" > Carro
+                </label>
+            </div>
+            <div [hidden]="tipoVehiculo.valid || tipoVehiculo.pristine"
                 class="errores-input">
-                El tipoVehiculo es requerido
+                El Tipo de Vehículo es requerido
+            </div>
         </div>
 
         <div class="form-group">
-            <label for="placa">Placa</label>
+            <label for="placa">Placa:</label>
             <input type="text" class="form-control" id="placa"
                    [(ngModel)]="vehiculoModel.placa" name="placa"
-                   #placa="ngModel" required>
+                   #placa="ngModel" required appUpperCaseText>
             <div [hidden]="placa.valid || placa.pristine"
                 class="errores-input">
                 La Placa es requerida
             </div>
         </div>
-        <div *ngIf="vehiculoModel.tipoVehiculo == 1" class="form-group">
-            <label for="cilindraje">Cilindraje</label>
+        <div *ngIf="vehiculoModel.tipoVehiculo == tipoVehiculoMoto" class="form-group">
+            <label for="cilindraje">Cilindraje:</label>
             <input type="number" class="form-control" id="cilindraje"
                     [(ngModel)]="vehiculoModel.cilindraje" name="cilindraje" 
                     #cilindraje="ngModel" min="1" required>
@@ -39,24 +50,3 @@
 
         <button type="submit" class="btn btn-ingresar-vehiculo" [disabled]="!ingresoVehiculoForm.form.valid">Ingresar al parqueadero</button>
     </div>
-</form>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>

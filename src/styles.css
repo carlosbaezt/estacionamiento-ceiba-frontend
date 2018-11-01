@@ -30,13 +30,17 @@
 
 .errores-input
 {
-    color: #a94442;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
 }
 
 .btn-ingresar-vehiculo
 {
     color: black;
     background-color: yellow;
+    border-color: black !important;
 }
 
 .btn-ingresar-vehiculo:hover

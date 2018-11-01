@@ -9,6 +9,8 @@ import { faCar } from '@fortawesome/free-solid-svg-icons';
 import { faMotorcycle } from '@fortawesome/free-solid-svg-icons';
 import { FormsModule }   from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { UpperCaseTextDirective } from './upper-case-text.directive';
 
 
 // Add an icon to the library for convenient access in other components
@@ -19,13 +21,15 @@ library.add(faMotorcycle);
 @NgModule({
   declarations: [
     AppComponent,
-    IngresarVehiculoComponent
+    IngresarVehiculoComponent,
+    UpperCaseTextDirective
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
