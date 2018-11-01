@@ -4,3 +4,18 @@
     background-color: yellow;
     color: black;
 }
+
+.btn-tipo-vehiculo
+{
+    color: black;
+    background-color: yellow;
+    border-color: yellow;
+}
+
+.btn-tipo-vehiculo:active,
+.btn-tipo-vehiculo.active
+{
+    color: yellow;
+    background-color: black;
+    border-color: black;
+}

@@ -1,0 +1,24 @@
+<h3>Ingreso de Vehículos</h3>
+<form (ngSubmit)="onSubmit()" #ingresoVehiculoForm="ngForm">
+    <div class="col-12">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-tipo-vehiculo col-sm">
+                <fa-icon icon="motorcycle"></fa-icon>
+                <input [(ngModel)]="vehiculoModel.tipoVehiculo" value="1" type="radio" name="tipoVehiculo" id="option1" required> Moto
+            </label>
+            <label class="btn btn-tipo-vehiculo col-sm">
+                    <fa-icon icon="car"></fa-icon>
+                <input [(ngModel)]="vehiculoModel.tipoVehiculo" value="2" type="radio" name="tipoVehiculo" id="option2" required> Carro
+            </label>
+        </div>
+        <div class="form-group">
+        <label for="placa">Placa</label>
+        <input type="text" class="form-control" id="placa"
+                [(ngModel)]="vehiculoModel.placa" name="placa">
+        </div>
+    </div>
+</form>
+
+<div>
+    {{vehiculoModel | json}}
+</div>
