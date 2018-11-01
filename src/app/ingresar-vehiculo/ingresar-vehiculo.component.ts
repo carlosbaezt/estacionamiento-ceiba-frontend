@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehiculo } from '../models/vehiculo';
+import { VehiculoService } from '../vehiculo.service';
 
 @Component({
   selector: 'app-ingresar-vehiculo',
@@ -9,10 +10,25 @@ import { Vehiculo } from '../models/vehiculo';
 export class IngresarVehiculoComponent implements OnInit {
 
   vehiculoModel = new Vehiculo();
-  constructor() {
+  constructor(
+    private vehiculoService: VehiculoService
+  ) {
     
   }
 
   ngOnInit() {
+  }
+
+  onSubmit()
+  {
+    this.vehiculoService.ingresarVehiculo(this.vehiculoModel).subscribe(
+      res => {
+        console.log(res);
+        this.vehiculoModel = new Vehiculo();
+      },
+      err => {
+        console.log("Error occured");
+      }
+    )
   }
 }

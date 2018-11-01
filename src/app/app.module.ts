@@ -8,6 +8,8 @@ import { IngresarVehiculoComponent } from './ingresar-vehiculo/ingresar-vehiculo
 import { faCar } from '@fortawesome/free-solid-svg-icons';
 import { faMotorcycle } from '@fortawesome/free-solid-svg-icons';
 import { FormsModule }   from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
 
 // Add an icon to the library for convenient access in other components
 library.add(faFlagCheckered);
@@ -23,6 +25,7 @@ library.add(faMotorcycle);
     BrowserModule,
     FontAwesomeModule,
     FormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
