@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Estacionamiento - ADN Ceiba';
+  title = 'Estacionamiento - ADN';
   mensaje = '';
 
   recargarListadoParqueos(mensaje)

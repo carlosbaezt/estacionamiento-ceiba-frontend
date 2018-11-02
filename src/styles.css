@@ -110,3 +110,17 @@ body, html {
 {
     color: #ffea00;
 }
+
+.logoCeibaHome
+{
+    width: 100px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tituloCeiba
+{
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0px;
+}
