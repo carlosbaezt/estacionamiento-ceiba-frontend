@@ -5,7 +5,7 @@ body, html {
 
 .bg-parqueadero
 {
-    background-color: yellow;
+    background-color: #ffea00;
     color: black;
     padding-left: 30px;
     padding-top: 10px;
@@ -15,15 +15,15 @@ body, html {
 .btn-tipo-vehiculo
 {
     color: black;
-    background-color: yellow;
-    border-color: yellow;
+    background-color: #ffea00;
+    border-color: #ffea00;
 }
 
 .btn-tipo-vehiculo:active,
 .btn-tipo-vehiculo.active,
 .btn-tipo-vehiculo:hover
 {
-    color: yellow;
+    color: #ffea00;
     background-color: black;
     border-color: black;
 }
@@ -47,12 +47,12 @@ body, html {
 .btn-ingresar-vehiculo
 {
     color: black;
-    background-color: yellow;
+    background-color: #ffea00;
 }
 
 .btn-ingresar-vehiculo:hover
 {
-    color: yellow;
+    color: #ffea00;
     background-color: black;
 }
 
@@ -65,12 +65,12 @@ body, html {
 
 .circle-icon {
     color: black;
-    background-color: yellow;
+    background-color: #ffea00;
     border-radius: 50% !important;
 }
 
 .circle-icon:hover {
-    color: yellow;
+    color: #ffea00;
     background-color: black;
     border-radius: 50% !important;
 }
@@ -97,6 +97,16 @@ body, html {
 
 .modal-success > .modal-header
 {
-    background: yellow;
+    background: #ffea00;
     color: black;
+}
+
+.modal-footer{
+    padding-top: 0px !important;
+    border-top: none !important;
+}
+
+.car-crash
+{
+    color: #ffea00;
 }

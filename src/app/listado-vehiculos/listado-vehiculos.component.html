@@ -26,9 +26,9 @@
 </div>
 <div *ngIf="listadoParqueos == undefined || listadoParqueos.length == 0" >
     <div align="center">
-        <fa-icon icon="charging-station" size="9x"></fa-icon>
+        <fa-icon icon="car-crash" class="car-crash" size="9x"></fa-icon>
         <br/>
-        Actualmente no hay vehículos estacionados :(
+        Actualmente no hay vehículos estacionados
     </div>
 </div>
 
@@ -41,7 +41,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>{{ mensaje }}&hellip;</p>
+                <p>{{ mensaje }}</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>

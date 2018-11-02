@@ -15,6 +15,11 @@ export class ListadoVehiculosComponent implements OnInit,OnChanges {
     procesoExitoso: boolean;
     titulo: String;
     mensaje: String;
+    formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0
+      });
 
     constructor(
         private vehiculoService: VehiculoService,
@@ -44,7 +49,7 @@ export class ListadoVehiculosComponent implements OnInit,OnChanges {
             res => {
                 var response = res.json();
                 this.titulo = "Fantástico";
-                this.mensaje = "El Vehículo " + response.vehiculo.placa +" salio al parqueadero exitosamente, el valor es: $" + response.precio;
+                this.mensaje = "El Vehículo " + response.vehiculo.placa +" salio del parqueadero exitosamente, el valor a pagar es: " + this.formatter.format(response.precio);
                 this.procesoExitoso = true;
                 this.mostrarModalConfirmacion(content);
                 this.cargarListadoParqueos();
@@ -61,7 +66,8 @@ export class ListadoVehiculosComponent implements OnInit,OnChanges {
                     this.mensaje = err.text();
                 }
                 this.procesoExitoso = false;
-                this.mostrarModalConfirmacion(content);                
+                this.mostrarModalConfirmacion(content);
+                this.cargarListadoParqueos();
             }
         );
     }

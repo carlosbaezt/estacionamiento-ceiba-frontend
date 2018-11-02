@@ -13,7 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UpperCaseTextDirective } from './upper-case-text.directive';
 import { ListadoVehiculosComponent } from './listado-vehiculos/listado-vehiculos.component';
 import { HttpClientModule } from "@angular/common/http";
-import { faChargingStation } from '@fortawesome/free-solid-svg-icons';
+import { faCarCrash } from '@fortawesome/free-solid-svg-icons';
 import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -21,7 +21,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 library.add(faFlagCheckered);
 library.add(faCar);
 library.add(faMotorcycle);
-library.add(faChargingStation);
+library.add(faCarCrash);
 library.add(faArrowCircleRight);
 library.add(faArrowRight);
 
