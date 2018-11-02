@@ -1,7 +1,7 @@
 export class Vehiculo {
-    public placa;
-    public tipoVehiculo;
-    public cilindraje;
+    public placa: String;
+    public tipoVehiculo: Number;
+    public cilindraje: Number;
 
     constructor(
     ){

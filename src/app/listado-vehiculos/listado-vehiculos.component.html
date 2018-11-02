@@ -16,7 +16,7 @@
                 <td>{{parqueo.tipoVehiculo}}</td>
                 <td>{{parqueo.fechaIngreso}}</td>
                 <td>
-                    <button class="btn circle-icon">
+                    <button class="btn circle-icon" (click)="retirarVehiculo(parqueo.placa,content)">
                         <fa-icon icon="arrow-right"></fa-icon>
                     </button>
                 </td>
@@ -31,3 +31,20 @@
         Actualmente no hay vehículos estacionados :(
     </div>
 </div>
+
+<ng-template #content let-modal>
+        <div [ngClass]="[procesoExitoso ? 'modal-success' : 'modal-error']">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ titulo }}!</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>{{ mensaje }}&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
+            </div>
+        </div>
+    </ng-template>

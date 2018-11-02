@@ -1,6 +1,7 @@
 import { Component, OnInit,OnChanges,Input } from '@angular/core';
 import { VehiculoService } from '../vehiculo.service';
 import { ListadoParqueo } from '../models/listado-parqueo';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-listado-vehiculos',
@@ -10,10 +11,15 @@ import { ListadoParqueo } from '../models/listado-parqueo';
 export class ListadoVehiculosComponent implements OnInit,OnChanges {
 
     @Input() recargarListado: string;
-
     listadoParqueos: ListadoParqueo[];
+    procesoExitoso: boolean;
+    titulo: String;
+    mensaje: String;
 
-    constructor(private vehiculoService: VehiculoService) { }
+    constructor(
+        private vehiculoService: VehiculoService,
+        private modalService: NgbModal
+    ){ }
 
     ngOnInit() {
         this.cargarListadoParqueos();
@@ -28,8 +34,40 @@ export class ListadoVehiculosComponent implements OnInit,OnChanges {
         this.vehiculoService.obtenerVehiculosParqueados().subscribe(
             data => {
                 this.listadoParqueos = data;
-                console.log(this.listadoParqueos);
             }
         );
+    }
+
+    retirarVehiculo(placa, content)
+    {
+        this.vehiculoService.retirarVehiculo(placa).subscribe(
+            res => {
+                var response = res.json();
+                this.titulo = "Fantástico";
+                this.mensaje = "El Vehículo " + response.vehiculo.placa +" salio al parqueadero exitosamente, el valor es: $" + response.precio;
+                this.procesoExitoso = true;
+                this.mostrarModalConfirmacion(content);
+                this.cargarListadoParqueos();
+
+            },
+            err => 
+            {
+                console.log(err);
+                this.titulo = "Error";
+                if (err.status == 0 || err.status == 500) {
+                    this.mensaje = "Error de conexión, por favor contacte al administrador";
+                }
+                else {
+                    this.mensaje = err.text();
+                }
+                this.procesoExitoso = false;
+                this.mostrarModalConfirmacion(content);                
+            }
+        );
+    }
+
+    mostrarModalConfirmacion(content)
+    {
+        this.modalService.open(content, { size: 'lg', centered: true  });
     }
 }

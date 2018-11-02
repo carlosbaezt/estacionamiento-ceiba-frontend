@@ -13,10 +13,6 @@ export class UpperCaseTextDirective {
 
   @HostListener('keyup') onKeyUp() {
     this.el.nativeElement.value = this.el.nativeElement.value.toUpperCase();
-    console.log(this.el.nativeElement.value)
-    
-   console.log('some thing key upped')
-
   }
 
 }

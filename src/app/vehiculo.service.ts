@@ -25,4 +25,9 @@ export class VehiculoService {
   obtenerVehiculosParqueados() {
     return this.httpClient.get<ListadoParqueo[]>(API_URL + "obtenerParqueados");
   }
+
+  retirarVehiculo(placa: String) {
+    return this.http.get(API_URL + "retirarVehiculo/" + placa);
+  }
+
 }
