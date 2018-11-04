@@ -4,14 +4,14 @@
     <div class="col-12">
         <div class="form-group">
             <label for="btn-group-toggle">Tipo de Vehículo:</label><br/>
-            <div class="btn-group btn-group-toggle container">
+            <div class="btn-group btn-group-toggle container" id="lblTipoVehiculoMoto">
                 <label class="btn btn-tipo-vehiculo col-sm checkMoto" [class.active]="vehiculoModel.tipoVehiculo == tipoVehiculoMoto">
                     <fa-icon icon="motorcycle"></fa-icon>
-                    <input [(ngModel)]="vehiculoModel.tipoVehiculo" value="{{tipoVehiculoMoto}}" type="radio" name="tipoVehiculo" id="option1" required #tipoVehiculo="ngModel" > Moto
+                    <input [(ngModel)]="vehiculoModel.tipoVehiculo" value="{{tipoVehiculoMoto}}" type="radio" name="tipoVehiculo" id="chkTipoVehiculoMoto" required #tipoVehiculo="ngModel" > Moto
                 </label>
-                <label class="btn btn-tipo-vehiculo col-sm" [class.active]="vehiculoModel.tipoVehiculo == tipoVehiculoCarro" >
+                <label class="btn btn-tipo-vehiculo col-sm" [class.active]="vehiculoModel.tipoVehiculo == tipoVehiculoCarro" id="lblTipoVehiculoCarro">
                         <fa-icon icon="car"></fa-icon>
-                    <input [(ngModel)]="vehiculoModel.tipoVehiculo" value="{{tipoVehiculoCarro}}" type="radio" name="tipoVehiculo" id="option2" required #tipoVehiculo="ngModel" > Carro
+                    <input [(ngModel)]="vehiculoModel.tipoVehiculo" value="{{tipoVehiculoCarro}}" type="radio" name="tipoVehiculo" id="chkTipoVehiculoCarro" required #tipoVehiculo="ngModel" > Carro
                 </label>
             </div>
             <div [hidden]="tipoVehiculo.valid || tipoVehiculo.pristine"
@@ -43,6 +43,7 @@
 
         <div class="separador form-group text-center">
             <button type="submit" class="btn btn-ingresar-vehiculo col-12" 
+                id="btnIngresarVehiculo"
                 [disabled]="!ingresoVehiculoForm.form.valid">
                 Ingresar al parqueadero
                 <fa-icon icon="arrow-circle-right"></fa-icon>
@@ -50,9 +51,8 @@
         </div>
     </div>
 </form>
-<br/>
 
-<ng-template #content let-modal>
+<ng-template #content let-modal  id="modalIngresarVehiculo">
     <div [ngClass]="[procesoExitoso ? 'modal-success' : 'modal-error']">
         <div class="modal-header">
             <h4 class="modal-title">{{ titulo }}!</h4>
@@ -61,7 +61,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <p>{{ mensaje }}</p>
+            <p id="mensajeIngresarVehiculo">{{ mensaje }}</p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
