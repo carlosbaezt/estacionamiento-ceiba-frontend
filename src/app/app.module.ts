@@ -16,6 +16,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { faCarCrash } from '@fortawesome/free-solid-svg-icons';
 import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { TrmComponent } from './trm/trm.component';
+import { faMoneyBillAlt } from '@fortawesome/free-solid-svg-icons';
 
 // Add an icon to the library for convenient access in other components
 library.add(faFlagCheckered);
@@ -24,6 +26,7 @@ library.add(faMotorcycle);
 library.add(faCarCrash);
 library.add(faArrowCircleRight);
 library.add(faArrowRight);
+library.add(faMoneyBillAlt);
 
 
 @NgModule({
@@ -31,7 +34,8 @@ library.add(faArrowRight);
     AppComponent,
     IngresarVehiculoComponent,
     UpperCaseTextDirective,
-    ListadoVehiculosComponent
+    ListadoVehiculosComponent,
+    TrmComponent
   ],
   imports: [
     BrowserModule,
