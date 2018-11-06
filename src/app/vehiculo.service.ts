@@ -19,15 +19,15 @@ export class VehiculoService {
   ) { }
 
   ingresarVehiculo(vehiculo: Vehiculo) {
-    return this.http.post(API_URL + "ingresarVehiculo" , vehiculo);
+    return this.http.post(API_URL + "v1/ingresarVehiculo" , vehiculo);
   }
 
   obtenerVehiculosParqueados() {
-    return this.httpClient.get<ListadoParqueo[]>(API_URL + "obtenerParqueados");
+    return this.httpClient.get<ListadoParqueo[]>(API_URL + "v1/obtenerParqueados");
   }
 
   retirarVehiculo(placa: String) {
-    return this.http.get(API_URL + "retirarVehiculo/" + placa);
+    return this.http.get(API_URL + "v1/retirarVehiculo/" + placa);
   }
 
 }
