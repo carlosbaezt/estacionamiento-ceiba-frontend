@@ -15,6 +15,6 @@ export class TrmService {
   ) { }
 
   consultarTrm() {
-    return this.http.get(API_URL + "trm");
+    return this.http.get(API_URL + "v1/trm");
   }
 }
